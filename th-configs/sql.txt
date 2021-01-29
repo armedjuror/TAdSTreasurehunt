@@ -1,0 +1,19 @@
+#create database
+CREATE DATABASE tads_th CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci';
+
+#create user and grant permissions
+CREATE USER 'tads_th'@'localhost' IDENTIFIED BY 'yXHz*z7!RnMd';
+GRANT ALL PRIVILEGES ON tads_th.* TO 'tads_th'@'localhost';
+
+#User Schema
+CREATE TABLE tads_users (
+    user_id VARCHAR(16) NOT NULL UNIQUE,
+    user_roll VARCHAR(16) NOT NULL,
+    user_name VARCHAR(63) NOT NULL,
+    user_email VARCHAR(255) NOT NULL,
+    user_password VARCHAR(63) NOT NULL,
+    user_bio VARCHAR(255) DEFAULT NULL,
+    user_gravatar MEDIUMBLOB DEFAULT NULL,
+    PRIMARY KEY(user_id)
+    ) CHARACTER SET='utf8mb4' COLLATE='utf8mb4_general_ci';
+
